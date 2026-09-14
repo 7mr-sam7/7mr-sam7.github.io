@@ -254,6 +254,51 @@
             white-space: nowrap;
         }
 
+        /* BUILDER GALLERY */
+
+        .gallery-intro {
+            color: #888;
+            max-width: 700px;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .gallery-title {
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-bottom: 55px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border: 1px solid #222;
+            background: #0d0d0d;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: #555;
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
         /* ABOUT */
 
         .about {
@@ -325,7 +370,8 @@
             }
 
             .services,
-            .about {
+            .about,
+            .gallery {
                 grid-template-columns: 1fr;
             }
 
@@ -335,6 +381,10 @@
 
             .contact-box {
                 padding: 30px;
+            }
+
+            .gallery-item img {
+                height: 250px;
             }
 
             h1 {
@@ -356,21 +406,11 @@
             </div>
 
             <ul>
-                <li>
-                    <a href="#services">SERVICES</a>
-                </li>
-
-                <li>
-                    <a href="#projects">PROJECTS</a>
-                </li>
-
-                <li>
-                    <a href="#about">ABOUT</a>
-                </li>
-
-                <li>
-                    <a href="#contact">CONTACT</a>
-                </li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#building">BUILDING</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
             </ul>
 
         </div>
@@ -401,8 +441,8 @@
 
                 <div class="buttons">
 
-                    <a class="button primary" href="#projects">
-                        Ver projetos
+                    <a class="button primary" href="#building">
+                        Ver meus builds
                     </a>
 
                     <a class="button" href="#contact">
@@ -432,12 +472,8 @@
 
                 <div class="services">
 
-
                     <div class="service">
-
-                        <div class="service-number">
-                            01
-                        </div>
+                        <div class="service-number">01</div>
 
                         <h3>
                             Roblox Building
@@ -449,15 +485,11 @@
                             buscando equilíbrio entre estética e
                             funcionalidade.
                         </p>
-
                     </div>
 
 
                     <div class="service">
-
-                        <div class="service-number">
-                            02
-                        </div>
+                        <div class="service-number">02</div>
 
                         <h3>
                             Bot Development
@@ -468,15 +500,11 @@
                             incluindo sistemas de moderação, tickets,
                             logs, comandos e automações.
                         </p>
-
                     </div>
 
 
                     <div class="service">
-
-                        <div class="service-number">
-                            03
-                        </div>
+                        <div class="service-number">03</div>
 
                         <h3>
                             Discord Management
@@ -487,15 +515,11 @@
                             canais, sistemas administrativos e estruturas
                             de comunidades.
                         </p>
-
                     </div>
 
 
                     <div class="service">
-
-                        <div class="service-number">
-                            04
-                        </div>
+                        <div class="service-number">04</div>
 
                         <h3>
                             Security
@@ -506,15 +530,11 @@
                             de acesso, moderação e prevenção de abusos em
                             comunidades digitais.
                         </p>
-
                     </div>
 
 
                     <div class="service">
-
-                        <div class="service-number">
-                            05
-                        </div>
+                        <div class="service-number">05</div>
 
                         <h3>
                             Graphic Design
@@ -525,9 +545,7 @@
                             projetos, comunidades, redes sociais e
                             apresentações.
                         </p>
-
                     </div>
-
 
                 </div>
 
@@ -552,11 +570,9 @@
 
                 <div class="projects">
 
-
                     <div class="project">
 
                         <div>
-
                             <h3>
                                 Mall Complex Facility
                             </h3>
@@ -567,7 +583,6 @@
                                 sistemas de segurança, funções,
                                 patrulhamento e eventos.
                             </p>
-
                         </div>
 
                         <div class="project-tag">
@@ -580,7 +595,6 @@
                     <div class="project">
 
                         <div>
-
                             <h3>
                                 Discord Bot Systems
                             </h3>
@@ -590,7 +604,6 @@
                                 do Discord, com sistemas de moderação,
                                 tickets, logs, comandos e automações.
                             </p>
-
                         </div>
 
                         <div class="project-tag">
@@ -603,7 +616,6 @@
                     <div class="project">
 
                         <div>
-
                             <h3>
                                 Discord Administration
                             </h3>
@@ -613,7 +625,6 @@
                                 incluindo hierarquia, permissões, canais,
                                 moderação, suporte e organização interna.
                             </p>
-
                         </div>
 
                         <div class="project-tag">
@@ -626,7 +637,6 @@
                     <div class="project">
 
                         <div>
-
                             <h3>
                                 Security & Management
                             </h3>
@@ -637,7 +647,6 @@
                                 processos e manter ambientes mais seguros
                                 e funcionais.
                             </p>
-
                         </div>
 
                         <div class="project-tag">
@@ -646,6 +655,79 @@
 
                     </div>
 
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BUILDER GALLERY -->
+
+        <section id="building">
+
+            <div class="container">
+
+                <div class="section-label">
+                    03 — Roblox Building
+                </div>
+
+                <h2>
+                    Meus builds.
+                </h2>
+
+                <p class="gallery-intro">
+                    Alguns dos meus trabalhos desenvolvidos no Roblox Studio,
+                    mostrando diferentes construções e ambientes criados por mim.
+                </p>
+
+
+                <!-- BIS -->
+
+                <h3 class="gallery-title">
+                    Batalhão de Infantaria de Selva
+                </h3>
+
+                <div class="gallery">
+
+                    <div class="gallery-item">
+                        <img
+                            src="BIS-1.webp"
+                            alt="Build BIS 1"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="BIS-2.webp"
+                            alt="Build BIS 2"
+                        >
+                    </div>
+
+                </div>
+
+
+                <!-- CASA -->
+
+                <h3 class="gallery-title">
+                    Uma casa
+                </h3>
+
+                <div class="gallery">
+
+                    <div class="gallery-item">
+                        <img
+                            src="casa-1.webp"
+                            alt="Build Casa 1"
+                        >
+                    </div>
+
+                    <div class="gallery-item">
+                        <img
+                            src="casa-2.webp"
+                            alt="Build Casa 2"
+                        >
+                    </div>
 
                 </div>
 
@@ -661,7 +743,7 @@
             <div class="container">
 
                 <div class="section-label">
-                    03 — About
+                    04 — About
                 </div>
 
                 <h2>
@@ -669,7 +751,6 @@
                 </h2>
 
                 <div class="about">
-
 
                     <div>
 
@@ -693,9 +774,7 @@
 
                     <div class="stats">
 
-
                         <div class="stat">
-
                             <strong>
                                 Roblox Studio
                             </strong>
@@ -703,12 +782,10 @@
                             <span>
                                 Building & Development
                             </span>
-
                         </div>
 
 
                         <div class="stat">
-
                             <strong>
                                 Bot Development
                             </strong>
@@ -716,12 +793,10 @@
                             <span>
                                 Discord Bots & Automation
                             </span>
-
                         </div>
 
 
                         <div class="stat">
-
                             <strong>
                                 Discord
                             </strong>
@@ -729,12 +804,10 @@
                             <span>
                                 Management & Moderation
                             </span>
-
                         </div>
 
 
                         <div class="stat">
-
                             <strong>
                                 Security
                             </strong>
@@ -742,12 +815,10 @@
                             <span>
                                 Community Protection
                             </span>
-
                         </div>
 
 
                         <div class="stat">
-
                             <strong>
                                 Design
                             </strong>
@@ -755,9 +826,7 @@
                             <span>
                                 Graphic & Visual Content
                             </span>
-
                         </div>
-
 
                     </div>
 
@@ -775,7 +844,7 @@
             <div class="container">
 
                 <div class="section-label">
-                    04 — Contact
+                    05 — Contact
                 </div>
 
                 <h2>
@@ -792,8 +861,6 @@
 
                     <div class="buttons">
 
-                        <!-- TROQUE O LINK ABAIXO PELO SEU DISCORD -->
-
                         <a
                             class="button primary"
                             href="https://discord.com/7mr.sam7"
@@ -803,11 +870,9 @@
                         </a>
 
 
-                        <!-- TROQUE PELO SEU E-MAIL -->
-
                         <a
                             class="button"
-                            href="mailto:gx009er@EMAIL.COM"
+                            href="mailto:gx009er@gmail.com"
                         >
                             E-mail
                         </a>
