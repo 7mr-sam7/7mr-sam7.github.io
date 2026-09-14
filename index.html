@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MR.SAM — Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: #f2f2f2;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 22px 0;
+            background: rgba(8, 8, 8, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1c1c1c;
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #777;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #aaa;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #292929;
+            filter: blur(150px);
+            opacity: 0.25;
+            top: 20%;
+            left: -150px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag {
+            color: #777;
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(55px, 10vw, 110px);
+            line-height: 0.9;
+            letter-spacing: -5px;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #777;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 13px 22px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            transition: 0.2s;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            background: white;
+            color: black;
+            border-color: white;
+        }
+
+        .button.primary {
+            background: white;
+            color: black;
+            border-color: white;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 110px 0;
+            border-top: 1px solid #171717;
+        }
+
+        .section-label {
+            color: #666;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: clamp(35px, 6vw, 65px);
+            letter-spacing: -2px;
+            margin-bottom: 50px;
+        }
+
+        /* SERVICES */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .service {
+            border: 1px solid #222;
+            padding: 35px;
+            background: #0d0d0d;
+            transition: 0.25s;
+        }
+
+        .service:hover {
+            border-color: #555;
+            transform: translateY(-4px);
+        }
+
+        .service-number {
+            color: #555;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .service h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            display: grid;
+            gap: 15px;
+        }
+
+        .project {
+            border: 1px solid #222;
+            padding: 30px;
+            background: #0d0d0d;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            transition: 0.25s;
+        }
+
+        .project:hover {
+            border-color: #555;
+        }
+
+        .project h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .project p {
+            color: #888;
+            max-width: 650px;
+            font-size: 14px;
+        }
+
+        .project-tag {
+            color: #666;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .about p {
+            color: #999;
+            font-size: 16px;
+        }
+
+        .stats {
+            display: grid;
+            gap: 20px;
+        }
+
+        .stat {
+            border-left: 1px solid #444;
+            padding-left: 20px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 3px;
+        }
+
+        .stat span {
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            border: 1px solid #222;
+            padding: 50px;
+            background: #0d0d0d;
+        }
+
+        .contact-box p {
+            color: #888;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #171717;
+            padding: 30px 0;
+            color: #555;
+            font-size: 12px;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .services,
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .project {
+                flex-direction: column;
+            }
+
+            .contact-box {
+                padding: 30px;
+            }
+
+            h1 {
+                letter-spacing: -3px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+        <div class="container">
+
+            <div class="logo">
+                MR<span>.</span>SAM
+            </div>
+
+            <ul>
+                <li>
+                    <a href="#services">SERVICES</a>
+                </li>
+
+                <li>
+                    <a href="#projects">PROJECTS</a>
+                </li>
+
+                <li>
+                    <a href="#about">ABOUT</a>
+                </li>
+
+                <li>
+                    <a href="#contact">CONTACT</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="container hero-content">
+
+                <div class="tag">
+                    Roblox Builder / Bot Developer / Administration / Security
+                </div>
+
+                <h1>
+                    MR<span>.</span>SAM
+                </h1>
+
+                <p>
+                    Roblox Builder e desenvolvedor de bots, com experiência
+                    em administração, segurança e design para comunidades
+                    digitais.
+                </p>
+
+                <div class="buttons">
+
+                    <a class="button primary" href="#projects">
+                        Ver projetos
+                    </a>
+
+                    <a class="button" href="#contact">
+                        Entrar em contato
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+
+        <section id="services">
+
+            <div class="container">
+
+                <div class="section-label">
+                    01 — Services
+                </div>
+
+                <h2>
+                    O que eu faço.
+                </h2>
+
+                <div class="services">
+
+
+                    <div class="service">
+
+                        <div class="service-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Roblox Building
+                        </h3>
+
+                        <p>
+                            Construção e desenvolvimento de ambientes,
+                            mapas e estruturas utilizando o Roblox Studio,
+                            buscando equilíbrio entre estética e
+                            funcionalidade.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service">
+
+                        <div class="service-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Bot Development
+                        </h3>
+
+                        <p>
+                            Criação e configuração de bots para Discord,
+                            incluindo sistemas de moderação, tickets,
+                            logs, comandos e automações.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service">
+
+                        <div class="service-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Discord Management
+                        </h3>
+
+                        <p>
+                            Organização de servidores, cargos, permissões,
+                            canais, sistemas administrativos e estruturas
+                            de comunidades.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service">
+
+                        <div class="service-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Security
+                        </h3>
+
+                        <p>
+                            Estruturação de sistemas de proteção, controle
+                            de acesso, moderação e prevenção de abusos em
+                            comunidades digitais.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service">
+
+                        <div class="service-number">
+                            05
+                        </div>
+
+                        <h3>
+                            Graphic Design
+                        </h3>
+
+                        <p>
+                            Criação e edição de materiais visuais para
+                            projetos, comunidades, redes sociais e
+                            apresentações.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-label">
+                    02 — Selected Work
+                </div>
+
+                <h2>
+                    Projetos.
+                </h2>
+
+                <div class="projects">
+
+
+                    <div class="project">
+
+                        <div>
+
+                            <h3>
+                                Mall Complex Facility
+                            </h3>
+
+                            <p>
+                                Projeto de uma experiência de RP no Roblox
+                                ambientada em um complexo comercial, com
+                                sistemas de segurança, funções,
+                                patrulhamento e eventos.
+                            </p>
+
+                        </div>
+
+                        <div class="project-tag">
+                            ROBLOX / BUILDING
+                        </div>
+
+                    </div>
+
+
+                    <div class="project">
+
+                        <div>
+
+                            <h3>
+                                Discord Bot Systems
+                            </h3>
+
+                            <p>
+                                Desenvolvimento de bots para comunidades
+                                do Discord, com sistemas de moderação,
+                                tickets, logs, comandos e automações.
+                            </p>
+
+                        </div>
+
+                        <div class="project-tag">
+                            BOTS / DISCORD
+                        </div>
+
+                    </div>
+
+
+                    <div class="project">
+
+                        <div>
+
+                            <h3>
+                                Discord Administration
+                            </h3>
+
+                            <p>
+                                Estruturação e administração de comunidades,
+                                incluindo hierarquia, permissões, canais,
+                                moderação, suporte e organização interna.
+                            </p>
+
+                        </div>
+
+                        <div class="project-tag">
+                            MANAGEMENT
+                        </div>
+
+                    </div>
+
+
+                    <div class="project">
+
+                        <div>
+
+                            <h3>
+                                Security & Management
+                            </h3>
+
+                            <p>
+                                Soluções de organização e segurança para
+                                comunidades digitais, buscando melhorar
+                                processos e manter ambientes mais seguros
+                                e funcionais.
+                            </p>
+
+                        </div>
+
+                        <div class="project-tag">
+                            SECURITY
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-label">
+                    03 — About
+                </div>
+
+                <h2>
+                    Sobre mim.
+                </h2>
+
+                <div class="about">
+
+
+                    <div>
+
+                        <p>
+                            Sou Builder no Roblox Studio e desenvolvedor
+                            de bots, além de atuar com administração,
+                            organização e segurança de comunidades digitais.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Meu objetivo é criar experiências e sistemas
+                            funcionais, organizados e visualmente bem
+                            construídos, sempre buscando melhorar a
+                            experiência dos usuários.
+                        </p>
+
+                    </div>
+
+
+                    <div class="stats">
+
+
+                        <div class="stat">
+
+                            <strong>
+                                Roblox Studio
+                            </strong>
+
+                            <span>
+                                Building & Development
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <strong>
+                                Bot Development
+                            </strong>
+
+                            <span>
+                                Discord Bots & Automation
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <strong>
+                                Discord
+                            </strong>
+
+                            <span>
+                                Management & Moderation
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <strong>
+                                Security
+                            </strong>
+
+                            <span>
+                                Community Protection
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <strong>
+                                Design
+                            </strong>
+
+                            <span>
+                                Graphic & Visual Content
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="section-label">
+                    04 — Contact
+                </div>
+
+                <h2>
+                    Vamos trabalhar juntos.
+                </h2>
+
+                <div class="contact-box">
+
+                    <p>
+                        Interessado em construção no Roblox, desenvolvimento
+                        de bots, administração, segurança ou design para sua
+                        comunidade? Entre em contato comigo.
+                    </p>
+
+                    <div class="buttons">
+
+                        <!-- TROQUE O LINK ABAIXO PELO SEU DISCORD -->
+
+                        <a
+                            class="button primary"
+                            href="https://discord.com/7mr.sam7"
+                            target="_blank"
+                        >
+                            Discord
+                        </a>
+
+
+                        <!-- TROQUE PELO SEU E-MAIL -->
+
+                        <a
+                            class="button"
+                            href="mailto:gx009er@EMAIL.COM"
+                        >
+                            E-mail
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container">
+
+            <span>
+                © 2026 MR.SAM
+            </span>
+
+            <span>
+                Built with HTML & CSS
+            </span>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
