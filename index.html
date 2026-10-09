@@ -88,6 +88,12 @@
             color: var(--muted);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         nav ul {
             display: flex;
             align-items: center;
@@ -105,6 +111,29 @@
 
         nav a:hover {
             color: var(--text);
+        }
+
+        .lang-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border: 1px solid var(--border-strong);
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .lang-btn:hover {
+            color: var(--text);
+            border-color: var(--border);
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .hero {
@@ -506,13 +535,13 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-        }
 
-        @media (max-width: 700px) {
             nav ul {
                 display: none;
             }
+        }
 
+        @media (max-width: 700px) {
             .gallery {
                 grid-template-columns: 1fr;
             }
@@ -546,13 +575,19 @@
                 MR<span>.</span>SAM
             </div>
 
-            <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#building">Building</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="#services" data-pt="Services" data-en="Services">Services</a></li>
+                    <li><a href="#projects" data-pt="Projects" data-en="Projects">Projects</a></li>
+                    <li><a href="#building" data-pt="Building" data-en="Building">Building</a></li>
+                    <li><a href="#about" data-pt="About" data-en="About">About</a></li>
+                    <li><a href="#contact" data-pt="Contact" data-en="Contact">Contact</a></li>
+                </ul>
+
+                <button class="lang-btn" onclick="toggleLanguage()" data-pt="Translate" data-en="Traduzir">
+                    Translate
+                </button>
+            </div>
 
         </div>
     </nav>
@@ -564,7 +599,7 @@
             <div class="container hero-inner">
 
                 <div class="hero-content">
-                    <div class="tag">
+                    <div class="tag" data-pt="Roblox Builder / Bot Developer / Administration / Security" data-en="Roblox Builder / Bot Developer / Administration / Security">
                         Roblox Builder / Bot Developer / Administration / Security
                     </div>
 
@@ -572,7 +607,7 @@
                         MR<span>.</span>SAM
                     </h1>
 
-                    <p>
+                    <p data-pt="Roblox Builder e desenvolvedor de bots, com experiência em administração, segurança e design para comunidades digitais." data-en="Roblox Builder and bot developer, with experience in administration, security and design for digital communities.">
                         Roblox Builder e desenvolvedor de bots, com experiência
                         em administração, segurança e design para comunidades
                         digitais.
@@ -580,11 +615,11 @@
 
                     <div class="buttons">
 
-                        <a class="button primary" href="#building">
+                        <a class="button primary" href="#building" data-pt="Ver meus builds" data-en="View my builds">
                             Ver meus builds
                         </a>
 
-                        <a class="button" href="#contact">
+                        <a class="button" href="#contact" data-pt="Entrar em contato" data-en="Get in touch">
                             Entrar em contato
                         </a>
 
@@ -595,17 +630,17 @@
                     <div class="panel-mini">
                         <div class="mini-card">
                             <strong>7+</strong>
-                            <span>Specialized Skills</span>
+                            <span data-pt="Specialized Skills" data-en="Specialized Skills">Specialized Skills</span>
                         </div>
 
                         <div class="mini-card">
                             <strong>100%</strong>
-                            <span>Focus on Quality</span>
+                            <span data-pt="Focus on Quality" data-en="Focus on Quality">Focus on Quality</span>
                         </div>
 
                         <div class="mini-card">
                             <strong>24/7</strong>
-                            <span>Community Support</span>
+                            <span data-pt="Community Support" data-en="Community Support">Community Support</span>
                         </div>
                     </div>
                 </div>
@@ -618,11 +653,11 @@
 
             <div class="container">
 
-                <div class="section-label">
+                <div class="section-label" data-pt="01 — Services" data-en="01 — Services">
                     01 — Services
                 </div>
 
-                <h2>
+                <h2 data-pt="O que eu faço." data-en="What I do.">
                     O que eu faço.
                 </h2>
 
@@ -631,11 +666,11 @@
                     <div class="service">
                         <div class="service-number">01</div>
 
-                        <h3>
+                        <h3 data-pt="Roblox Building" data-en="Roblox Building">
                             Roblox Building
                         </h3>
 
-                        <p>
+                        <p data-pt="Construção e desenvolvimento de ambientes, mapas e estruturas utilizando o Roblox Studio, buscando equilíbrio entre estética e funcionalidade." data-en="Construction and development of environments, maps and structures using Roblox Studio, seeking balance between aesthetics and functionality.">
                             Construção e desenvolvimento de ambientes,
                             mapas e estruturas utilizando o Roblox Studio,
                             buscando equilíbrio entre estética e
@@ -646,11 +681,11 @@
                     <div class="service">
                         <div class="service-number">02</div>
 
-                        <h3>
+                        <h3 data-pt="Bot Development" data-en="Bot Development">
                             Bot Development
                         </h3>
 
-                        <p>
+                        <p data-pt="Criação e configuração de bots para Discord, incluindo sistemas de moderação, tickets, logs, comandos e automações." data-en="Creation and configuration of bots for Discord, including moderation systems, tickets, logs, commands and automations.">
                             Criação e configuração de bots para Discord,
                             incluindo sistemas de moderação, tickets,
                             logs, comandos e automações.
@@ -660,11 +695,11 @@
                     <div class="service">
                         <div class="service-number">03</div>
 
-                        <h3>
+                        <h3 data-pt="Discord Management" data-en="Discord Management">
                             Discord Management
                         </h3>
 
-                        <p>
+                        <p data-pt="Organização de servidores, cargos, permissões, canais, sistemas administrativos e estruturas de comunidades." data-en="Organization of servers, roles, permissions, channels, administrative systems and community structures.">
                             Organização de servidores, cargos, permissões,
                             canais, sistemas administrativos e estruturas
                             de comunidades.
@@ -674,11 +709,11 @@
                     <div class="service">
                         <div class="service-number">04</div>
 
-                        <h3>
+                        <h3 data-pt="Security" data-en="Security">
                             Security
                         </h3>
 
-                        <p>
+                        <p data-pt="Estruturação de sistemas de proteção, controle de acesso, moderação e prevenção de abusos em comunidades digitais." data-en="Structuring protection systems, access control, moderation and prevention of abuse in digital communities.">
                             Estruturação de sistemas de proteção, controle
                             de acesso, moderação e prevenção de abusos em
                             comunidades digitais.
@@ -688,11 +723,11 @@
                     <div class="service">
                         <div class="service-number">05</div>
 
-                        <h3>
+                        <h3 data-pt="Graphic Design" data-en="Graphic Design">
                             Graphic Design
                         </h3>
 
-                        <p>
+                        <p data-pt="Criação e edição de materiais visuais para projetos, comunidades, redes sociais e apresentações." data-en="Creation and editing of visual materials for projects, communities, social networks and presentations.">
                             Criação e edição de materiais visuais para
                             projetos, comunidades, redes sociais e
                             apresentações.
@@ -702,11 +737,11 @@
                     <div class="service">
                         <div class="service-number">06</div>
 
-                        <h3>
+                        <h3 data-pt="Community Systems" data-en="Community Systems">
                             Community Systems
                         </h3>
 
-                        <p>
+                        <p data-pt="Organização de processos internos, fluxos de suporte e estruturas que melhoram a rotina de administração e segurança." data-en="Organization of internal processes, support flows and structures that improve the routine of administration and security.">
                             Organização de processos internos, fluxos de
                             suporte e estruturas que melhoram a rotina de
                             administração e segurança.
@@ -723,11 +758,11 @@
 
             <div class="container">
 
-                <div class="section-label">
+                <div class="section-label" data-pt="02 — Selected Work" data-en="02 — Selected Work">
                     02 — Selected Work
                 </div>
 
-                <h2>
+                <h2 data-pt="Projetos." data-en="Projects.">
                     Projetos.
                 </h2>
 
@@ -736,11 +771,11 @@
                     <div class="project">
 
                         <div>
-                            <h3>
+                            <h3 data-pt="Mall Complex Facility" data-en="Mall Complex Facility">
                                 Mall Complex Facility
                             </h3>
 
-                            <p>
+                            <p data-pt="Projeto de uma experiência de RP no Roblox ambientada em um complexo comercial, com sistemas de segurança, funções, patrulhamento e eventos." data-en="A Roblox RP experience project set in a shopping complex, with security systems, functions, patrols and events.">
                                 Projeto de uma experiência de RP no Roblox
                                 ambientada em um complexo comercial, com
                                 sistemas de segurança, funções,
@@ -748,7 +783,7 @@
                             </p>
                         </div>
 
-                        <div class="project-tag">
+                        <div class="project-tag" data-pt="ROBLOX / BUILDING" data-en="ROBLOX / BUILDING">
                             ROBLOX / BUILDING
                         </div>
 
@@ -757,18 +792,18 @@
                     <div class="project">
 
                         <div>
-                            <h3>
+                            <h3 data-pt="Discord Bot Systems" data-en="Discord Bot Systems">
                                 Discord Bot Systems
                             </h3>
 
-                            <p>
+                            <p data-pt="Desenvolvimento de bots para comunidades do Discord, com sistemas de moderação, tickets, logs, comandos e automações." data-en="Development of bots for Discord communities, with moderation systems, tickets, logs, commands and automations.">
                                 Desenvolvimento de bots para comunidades
                                 do Discord, com sistemas de moderação,
                                 tickets, logs, comandos e automações.
                             </p>
                         </div>
 
-                        <div class="project-tag">
+                        <div class="project-tag" data-pt="BOTS / DISCORD" data-en="BOTS / DISCORD">
                             BOTS / DISCORD
                         </div>
 
@@ -777,18 +812,18 @@
                     <div class="project">
 
                         <div>
-                            <h3>
+                            <h3 data-pt="Discord Administration" data-en="Discord Administration">
                                 Discord Administration
                             </h3>
 
-                            <p>
+                            <p data-pt="Estruturação e administração de comunidades, incluindo hierarquia, permissões, canais, moderação, suporte e organização interna." data-en="Structure and administration of communities, including hierarchy, permissions, channels, moderation, support and internal organization.">
                                 Estruturação e administração de comunidades,
                                 incluindo hierarquia, permissões, canais,
                                 moderação, suporte e organização interna.
                             </p>
                         </div>
 
-                        <div class="project-tag">
+                        <div class="project-tag" data-pt="MANAGEMENT" data-en="MANAGEMENT">
                             MANAGEMENT
                         </div>
 
@@ -797,11 +832,11 @@
                     <div class="project">
 
                         <div>
-                            <h3>
+                            <h3 data-pt="Security & Management" data-en="Security & Management">
                                 Security & Management
                             </h3>
 
-                            <p>
+                            <p data-pt="Soluções de organização e segurança para comunidades digitais, buscando melhorar processos e manter ambientes mais seguros e funcionais." data-en="Organization and security solutions for digital communities, seeking to improve processes and maintain safer and more functional environments.">
                                 Soluções de organização e segurança para
                                 comunidades digitais, buscando melhorar
                                 processos e manter ambientes mais seguros
@@ -809,7 +844,7 @@
                             </p>
                         </div>
 
-                        <div class="project-tag">
+                        <div class="project-tag" data-pt="SECURITY" data-en="SECURITY">
                             SECURITY
                         </div>
 
@@ -825,20 +860,20 @@
 
             <div class="container">
 
-                <div class="section-label">
+                <div class="section-label" data-pt="03 — Roblox Building" data-en="03 — Roblox Building">
                     03 — Roblox Building
                 </div>
 
-                <h2>
+                <h2 data-pt="Meus builds." data-en="My builds.">
                     Meus builds.
                 </h2>
 
-                <p class="gallery-intro">
+                <p class="gallery-intro" data-pt="Alguns dos meus trabalhos desenvolvidos no Roblox Studio, mostrando diferentes construções e ambientes criados por mim." data-en="Some of my work developed in Roblox Studio, showing different constructions and environments created by me.">
                     Alguns dos meus trabalhos desenvolvidos no Roblox Studio,
                     mostrando diferentes construções e ambientes criados por mim.
                 </p>
 
-                <h3 class="gallery-title">
+                <h3 class="gallery-title" data-pt="Batalhão de Infantaria de Selva" data-en="Jungle Infantry Battalion">
                     Batalhão de Infantaria de Selva
                 </h3>
 
@@ -860,7 +895,7 @@
 
                 </div>
 
-                <h3 class="gallery-title">
+                <h3 class="gallery-title" data-pt="Uma casa" data-en="A House">
                     Uma casa
                 </h3>
 
@@ -890,11 +925,11 @@
 
             <div class="container">
 
-                <div class="section-label">
+                <div class="section-label" data-pt="04 — About" data-en="04 — About">
                     04 — About
                 </div>
 
-                <h2>
+                <h2 data-pt="Sobre mim." data-en="About me.">
                     Sobre mim.
                 </h2>
 
@@ -902,7 +937,7 @@
 
                     <div>
 
-                        <p>
+                        <p data-pt="Sou Builder no Roblox Studio e desenvolvedor de bots, além de atuar com administração, organização e segurança de comunidades digitais." data-en="I am a Builder in Roblox Studio and bot developer, in addition to working with administration, organization and security of digital communities.">
                             Sou Builder no Roblox Studio e desenvolvedor
                             de bots, além de atuar com administração,
                             organização e segurança de comunidades digitais.
@@ -910,7 +945,7 @@
 
                         <br>
 
-                        <p>
+                        <p data-pt="Meu objetivo é criar experiências e sistemas funcionais, organizados e visualmente bem construídos, sempre buscando melhorar a experiência dos usuários." data-en="My goal is to create functional, organized and visually well-built experiences and systems, always seeking to improve the user experience.">
                             Meu objetivo é criar experiências e sistemas
                             funcionais, organizados e visualmente bem
                             construídos, sempre buscando melhorar a
@@ -922,51 +957,51 @@
                     <div class="stats">
 
                         <div class="stat">
-                            <strong>
+                            <strong data-pt="Roblox Studio" data-en="Roblox Studio">
                                 Roblox Studio
                             </strong>
 
-                            <span>
+                            <span data-pt="Building & Development" data-en="Building & Development">
                                 Building & Development
                             </span>
                         </div>
 
                         <div class="stat">
-                            <strong>
+                            <strong data-pt="Bot Development" data-en="Bot Development">
                                 Bot Development
                             </strong>
 
-                            <span>
+                            <span data-pt="Discord Bots & Automation" data-en="Discord Bots & Automation">
                                 Discord Bots & Automation
                             </span>
                         </div>
 
                         <div class="stat">
-                            <strong>
+                            <strong data-pt="Discord" data-en="Discord">
                                 Discord
                             </strong>
 
-                            <span>
+                            <span data-pt="Management & Moderation" data-en="Management & Moderation">
                                 Management & Moderation
                             </span>
                         </div>
 
                         <div class="stat">
-                            <strong>
+                            <strong data-pt="Security" data-en="Security">
                                 Security
                             </strong>
 
-                            <span>
+                            <span data-pt="Community Protection" data-en="Community Protection">
                                 Community Protection
                             </span>
                         </div>
 
                         <div class="stat">
-                            <strong>
+                            <strong data-pt="Design" data-en="Design">
                                 Design
                             </strong>
 
-                            <span>
+                            <span data-pt="Graphic & Visual Content" data-en="Graphic & Visual Content">
                                 Graphic & Visual Content
                             </span>
                         </div>
@@ -983,17 +1018,17 @@
 
             <div class="container">
 
-                <div class="section-label">
+                <div class="section-label" data-pt="05 — Contact" data-en="05 — Contact">
                     05 — Contact
                 </div>
 
-                <h2>
+                <h2 data-pt="Vamos trabalhar juntos." data-en="Let's work together.">
                     Vamos trabalhar juntos.
                 </h2>
 
                 <div class="contact-box">
 
-                    <p>
+                    <p data-pt="Interessado em construção no Roblox, desenvolvimento de bots, administração, segurança ou design para sua comunidade? Entre em contato comigo." data-en="Interested in building on Roblox, bot development, administration, security or design for your community? Get in touch with me.">
                         Interessado em construção no Roblox, desenvolvimento
                         de bots, administração, segurança ou design para sua
                         comunidade? Entre em contato comigo.
@@ -1005,6 +1040,8 @@
                             class="button primary"
                             href="https://discord.com/7mr.sam7"
                             target="_blank"
+                            data-pt="Discord"
+                            data-en="Discord"
                         >
                             Discord
                         </a>
@@ -1012,6 +1049,8 @@
                         <a
                             class="button"
                             href="mailto:gx009er@gmail.com"
+                            data-pt="E-mail"
+                            data-en="E-mail"
                         >
                             E-mail
                         </a>
@@ -1030,17 +1069,53 @@
 
         <div class="container">
 
-            <span>
+            <span data-pt="© 2026 MR.SAM" data-en="© 2026 MR.SAM">
                 © 2026 MR.SAM
             </span>
 
-            <span>
+            <span data-pt="Built with HTML & CSS" data-en="Built with HTML & CSS">
                 Built with HTML & CSS
             </span>
 
         </div>
 
     </footer>
+
+    <script>
+        let currentLanguage = 'pt';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'pt' ? 'en' : 'pt';
+            const lang = currentLanguage === 'pt' ? 'pt' : 'en';
+            const opposite = lang === 'pt' ? 'en' : 'pt';
+
+            // Atualizar todos os elementos com data-pt e data-en
+            document.querySelectorAll('[data-pt][data-en]').forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+
+            // Atualizar título da página
+            document.title = currentLanguage === 'pt' ? 'MR.SAM — Portfolio' : 'MR.SAM — Portfolio';
+
+            // Atualizar HTML lang
+            document.documentElement.lang = currentLanguage === 'pt' ? 'pt-BR' : 'en';
+
+            // Salvar preferência no localStorage
+            localStorage.setItem('language', currentLanguage);
+        }
+
+        // Carregar idioma salvo ao entrar na página
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage && savedLanguage !== 'pt') {
+                currentLanguage = 'pt';
+                toggleLanguage();
+            }
+        });
+    </script>
 
 </body>
 
