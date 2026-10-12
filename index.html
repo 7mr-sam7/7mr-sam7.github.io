@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MR.SAM — Portfolio</title>
-
+    <meta name="description" content="MR.SAM — Roblox Builder, Bot Developer, Administração, Segurança e Desenvolvimento de Sites.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #090b10;
-            --bg-soft: #11161d;
-            --panel: rgba(17, 22, 29, 0.84);
-            --panel-strong: #141b22;
-            --border: rgba(255, 255, 255, 0.08);
-            --border-strong: rgba(255, 255, 255, 0.15);
-            --text: #eef4ff;
-            --text-soft: #bfd0df;
-            --muted: #8b98a8;
-            --accent: #f4f7fb;
-            --accent-soft: #c7d4e8;
-            --glow: rgba(142, 180, 255, 0.16);
-            --shadow: 0 24px 65px rgba(0, 0, 0, 0.32);
-            --radius: 22px;
+            --bg: #07090e;
+            --bg-soft: #0d1117;
+            --panel: rgba(16, 22, 30, 0.82);
+            --panel-strong: #121820;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-strong: rgba(255, 255, 255, 0.14);
+            --text: #f0f4fa;
+            --text-soft: #b8c7d8;
+            --muted: #7d8b9c;
+            --accent: #e8eef8;
+            --accent-blue: #6b9fff;
+            --glow: rgba(107, 159, 255, 0.18);
+            --shadow: 0 28px 70px rgba(0, 0, 0, 0.38);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -36,12 +40,13 @@
 
         body {
             background:
-                radial-gradient(circle at top left, rgba(78, 135, 255, 0.12), transparent 24%),
-                radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.05), transparent 22%),
+                radial-gradient(ellipse 80% 50% at 10% -10%, rgba(78, 135, 255, 0.11), transparent 50%),
+                radial-gradient(ellipse 60% 40% at 90% 100%, rgba(255, 255, 255, 0.03), transparent 45%),
                 var(--bg);
             color: var(--text);
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.7;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.65;
+            overflow-x: hidden;
         }
 
         a {
@@ -55,20 +60,22 @@
         }
 
         .container {
-            width: min(1160px, 92%);
-            margin: auto;
+            width: min(1140px, 90%);
+            margin: 0 auto;
         }
 
+        /* ========== NAV ========== */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 18px 0;
-            background: rgba(9, 11, 16, 0.72);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            padding: 16px 0;
+            background: rgba(7, 9, 14, 0.78);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
-            z-index: 100;
+            z-index: 200;
+            transition: var(--transition);
         }
 
         nav .container {
@@ -78,9 +85,9 @@
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
-            letter-spacing: 0.26rem;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
         }
 
@@ -91,1032 +98,1237 @@
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 8px;
         }
 
         nav ul {
             display: flex;
             align-items: center;
             list-style: none;
-            gap: 28px;
+            gap: 4px;
         }
 
-        nav a {
-            color: var(--muted);
+        nav a, .nav-link {
             font-size: 12px;
-            letter-spacing: 0.18rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            transition: 0.25s ease;
+            color: var(--muted);
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
         }
 
-        nav a:hover {
+        nav a:hover, .nav-link:hover {
             color: var(--text);
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .lang-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 14px;
+            padding: 9px 14px;
             border: 1px solid var(--border-strong);
             border-radius: 10px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             color: var(--muted);
             background: rgba(255, 255, 255, 0.02);
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: var(--transition);
+            font-family: inherit;
+            margin-left: 8px;
         }
 
         .lang-btn:hover {
             color: var(--text);
-            border-color: var(--border);
-            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.05);
         }
 
+        /* ========== HERO ========== */
         .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 110px;
+            padding-top: 100px;
             overflow: hidden;
         }
 
         .hero::before {
             content: "";
             position: absolute;
-            width: 460px;
-            height: 460px;
-            top: 12%;
-            left: -160px;
-            background: rgba(255, 255, 255, 0.08);
-            filter: blur(110px);
+            width: 500px;
+            height: 500px;
+            top: 8%;
+            left: -180px;
+            background: rgba(107, 159, 255, 0.08);
+            filter: blur(120px);
             border-radius: 50%;
-            opacity: 0.7;
+            pointer-events: none;
         }
 
         .hero-inner {
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.25fr 0.75fr;
             align-items: center;
-            gap: 40px;
+            gap: 48px;
         }
 
         .tag {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 9px 14px;
+            padding: 8px 16px;
             border: 1px solid var(--border);
             border-radius: 999px;
             font-size: 11px;
-            letter-spacing: 0.18rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--text-soft);
             background: rgba(255, 255, 255, 0.02);
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .tag::before {
             content: "";
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ffffff, #9cb9ff);
-            box-shadow: 0 0 14px rgba(255, 255, 255, 0.7);
+            background: linear-gradient(135deg, #fff, #6b9fff);
+            box-shadow: 0 0 12px rgba(107, 159, 255, 0.7);
         }
 
         h1 {
-            font-size: clamp(56px, 7vw, 108px);
-            line-height: 0.9;
-            letter-spacing: -0.07em;
-            margin-bottom: 18px;
+            font-size: clamp(52px, 6.5vw, 96px);
+            line-height: 0.92;
+            letter-spacing: -0.05em;
+            margin-bottom: 20px;
             font-weight: 800;
         }
 
-        h1 span {
-            color: var(--muted);
-        }
-
-        .hero p {
-            max-width: 660px;
+        .hero-desc {
+            font-size: 17px;
             color: var(--text-soft);
-            font-size: 18px;
-            margin-bottom: 28px;
+            max-width: 480px;
+            margin-bottom: 36px;
+            line-height: 1.7;
         }
 
-        .buttons {
+        .hero-actions {
             display: flex;
-            gap: 14px;
             flex-wrap: wrap;
+            gap: 12px;
         }
 
         .button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 22px;
-            border: 1px solid var(--border-strong);
+            padding: 14px 26px;
             border-radius: 12px;
             font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            transition: all 0.25s ease;
-            box-shadow: 0 12px 18px rgba(0, 0, 0, 0.14);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            border: 1px solid var(--border-strong);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text);
+            transition: var(--transition);
+            cursor: pointer;
         }
 
         .button:hover {
-            transform: translateY(-2px);
-            background: var(--accent);
-            color: #0d1015;
-            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
         }
 
         .button.primary {
-            background: linear-gradient(135deg, #f2f6ff, #dfe9ff);
+            background: #f0f4fa;
+            color: #0a0c10;
             border-color: transparent;
-            color: #0e1116;
         }
 
-        .hero-panel {
-            position: relative;
-            padding: 24px;
+        .button.primary:hover {
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        .stats-card {
+            background: var(--panel);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            background: linear-gradient(180deg, rgba(22, 27, 34, 0.9), rgba(13, 17, 23, 0.9));
+            padding: 8px;
+            backdrop-filter: blur(12px);
             box-shadow: var(--shadow);
         }
 
-        .hero-panel::before {
-            content: "";
-            position: absolute;
-            inset: 1px;
-            border-radius: calc(var(--radius) - 1px);
-            background: linear-gradient(135deg, rgba(255,255,255,0.06), transparent 35%, transparent 65%, rgba(255,255,255,0.04));
-            pointer-events: none;
+        .stat-item {
+            padding: 22px 24px;
+            border-radius: 14px;
+            transition: var(--transition);
         }
 
-        .panel-mini {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            gap: 16px;
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.03);
         }
 
-        .mini-card {
-            padding: 18px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.02);
+        .stat-item + .stat-item {
+            border-top: 1px solid var(--border);
         }
 
-        .mini-card strong {
+        .stat-item strong {
             display: block;
-            font-size: 30px;
-            letter-spacing: -0.05em;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
             margin-bottom: 4px;
         }
 
-        .mini-card span {
-            color: var(--muted);
-            font-size: 13px;
-            letter-spacing: 0.12rem;
+        .stat-item span {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
+            color: var(--muted);
         }
 
+        /* ========== SECTIONS ========== */
         section {
             padding: 110px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
         }
 
         .section-label {
-            color: var(--muted);
             font-size: 12px;
-            letter-spacing: 0.24rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        h2 {
-            font-size: clamp(32px, 5vw, 60px);
-            letter-spacing: -0.06em;
-            line-height: 1.02;
-            margin-bottom: 40px;
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
-        }
-
-        .service {
-            position: relative;
-            padding: 30px 26px;
-            background: linear-gradient(180deg, rgba(18, 22, 29, 0.95), rgba(13, 16, 22, 0.95));
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-            overflow: hidden;
-        }
-
-        .service::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto auto 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02));
-        }
-
-        .service:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.18);
-            box-shadow: var(--shadow);
-        }
-
-        .service-number {
-            color: rgba(255, 255, 255, 0.36);
-            font-size: 12px;
-            letter-spacing: 0.18rem;
-            margin-bottom: 30px;
-        }
-
-        .service h3 {
-            font-size: 24px;
-            letter-spacing: -0.04em;
+            color: var(--muted);
             margin-bottom: 12px;
         }
 
-        .service p {
-            color: var(--muted);
-            font-size: 15px;
+        h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 48px;
+            line-height: 1.15;
         }
 
-        .projects {
+        /* Services */
+        .services-grid {
             display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
 
-        .project {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 24px;
-            padding: 28px 30px;
+        .service-card {
+            background: var(--panel);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            background: linear-gradient(180deg, rgba(18, 22, 29, 0.82), rgba(12, 16, 22, 0.92));
-            transition: transform 0.25s ease, border-color 0.25s ease;
+            border-radius: var(--radius);
+            padding: 28px 26px;
+            transition: var(--transition);
+            height: 100%;
         }
 
-        .project:hover {
-            transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, 0.16);
+        .service-card:hover {
+            border-color: var(--border-strong);
+            background: rgba(20, 26, 36, 0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
         }
 
-        .project h3 {
-            font-size: 25px;
-            margin-bottom: 8px;
-            letter-spacing: -0.05em;
+        .service-num {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
         }
 
-        .project p {
-            color: var(--muted);
-            max-width: 710px;
-            font-size: 15px;
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-soft);
+            line-height: 1.65;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .project-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .project-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: var(--text-soft);
+            margin-bottom: 20px;
+            line-height: 1.65;
         }
 
         .project-tag {
-            color: var(--text-soft);
+            display: inline-block;
             font-size: 11px;
-            letter-spacing: 0.18rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            white-space: nowrap;
-            padding: 10px 14px;
+            color: var(--muted);
+            padding: 6px 12px;
             border: 1px solid var(--border);
-            border-radius: 999px;
+            border-radius: 8px;
             background: rgba(255, 255, 255, 0.02);
         }
 
-        .gallery-intro {
-            color: var(--muted);
-            max-width: 760px;
-            margin-bottom: 35px;
-            font-size: 17px;
-        }
-
-        .gallery-title {
-            font-size: 28px;
-            line-height: 1.2;
-            margin-bottom: 18px;
-            letter-spacing: -0.05em;
-        }
-
+        /* Building */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
-            margin-bottom: 52px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 32px;
         }
 
         .gallery-item {
+            border-radius: var(--radius);
             overflow: hidden;
             border: 1px solid var(--border);
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.02);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.18);
+            background: var(--panel-strong);
+            aspect-ratio: 16 / 10;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 330px;
+            height: 100%;
             object-fit: cover;
-            transition: transform 0.35s ease;
+            transition: transform 0.5s ease;
         }
 
         .gallery-item:hover img {
             transform: scale(1.04);
         }
 
+        .build-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            margin-top: 40px;
+        }
+
+        .build-title:first-of-type {
+            margin-top: 0;
+        }
+
+        /* About */
         .about-wrap {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
             align-items: start;
         }
 
         .about-wrap p {
+            font-size: 16px;
             color: var(--text-soft);
-            font-size: 17px;
+            margin-bottom: 18px;
         }
 
-        .stats {
-            display: grid;
-            gap: 18px;
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .stat {
-            padding: 20px 22px;
-            border: 1px solid var(--border);
-            border-left: 2px solid rgba(255,255,255,0.26);
-            border-radius: 16px;
-            background: rgba(255,255,255,0.015);
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 19px;
-            margin-bottom: 4px;
-            letter-spacing: -0.04em;
-        }
-
-        .stat span {
-            color: var(--muted);
-            font-size: 13px;
-            letter-spacing: 0.1rem;
-            text-transform: uppercase;
-        }
-
-        .contact-box {
+        .skill-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 30px;
-            padding: 36px 32px;
+            padding: 16px 20px;
+            background: var(--panel);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            background: linear-gradient(180deg, rgba(17, 22, 29, 0.9), rgba(11, 15, 20, 0.95));
-            box-shadow: var(--shadow);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            border-color: var(--border-strong);
+            background: rgba(20, 26, 36, 0.9);
+        }
+
+        .skill-item strong {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .skill-item span {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        /* Contact */
+        .contact-box {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 48px 40px;
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
         }
 
         .contact-box p {
-            max-width: 660px;
+            font-size: 16px;
             color: var(--text-soft);
-            font-size: 17px;
+            margin-bottom: 32px;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            padding: 26px 0 36px;
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+
+        /* ========== PAYMENT METHODS ========== */
+        .payments {
+            margin-top: 40px;
+            padding-top: 36px;
+            border-top: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .payments-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
             color: var(--muted);
-            font-size: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .payment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .payment-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: var(--transition);
+        }
+
+        .payment-item:hover {
+            border-color: var(--border-strong);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .payment-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 22px;
+        }
+
+        .payment-icon.pix {
+            background: linear-gradient(135deg, #00b4a0, #00d4b8);
+            color: #fff;
+        }
+
+        .payment-icon.robux {
+            background: linear-gradient(135deg, #e2231a, #ff5c54);
+            color: #fff;
+        }
+
+        .payment-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .payment-info .name {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .payment-prices {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            font-size: 13px;
+            color: var(--text-soft);
+        }
+
+        .payment-prices span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .payment-prices strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            padding: 28px 0;
+            border-top: 1px solid var(--border);
         }
 
         footer .container {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
+            align-items: center;
+            font-size: 13px;
+            color: var(--muted);
         }
 
-        @media (max-width: 900px) {
-            .hero-inner,
-            .about-wrap,
-            .services {
+        /* ========== SITE PAGE (BOOK) ========== */
+        .page-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 300;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .page-overlay.active {
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        .book-page {
+            position: absolute;
+            inset: 0;
+            background: var(--bg);
+            transform-origin: left center;
+            transform: perspective(2000px) rotateY(-92deg);
+            transition: transform 0.85s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.4s ease;
+            opacity: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .page-overlay.active .book-page {
+            transform: perspective(2000px) rotateY(0deg);
+            opacity: 1;
+        }
+
+        .page-overlay.closing .book-page {
+            transform: perspective(2000px) rotateY(-92deg);
+            opacity: 0;
+        }
+
+        .book-page::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            background: linear-gradient(to right, rgba(0,0,0,0.35), transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .site-page-inner {
+            min-height: 100%;
+            padding: 100px 0 80px;
+        }
+
+        .site-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 40px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.02);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .site-back:hover {
+            color: var(--text);
+            border-color: var(--border-strong);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .site-hero {
+            margin-bottom: 56px;
+        }
+
+        .site-hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            margin-bottom: 16px;
+        }
+
+        .site-hero p {
+            font-size: 17px;
+            color: var(--text-soft);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        .site-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-bottom: 48px;
+        }
+
+        .site-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 26px;
+            transition: var(--transition);
+        }
+
+        .site-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-2px);
+        }
+
+        .site-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .site-card h3 .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 9px;
+            background: rgba(107, 159, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: var(--accent-blue);
+        }
+
+        .site-card p {
+            font-size: 14px;
+            color: var(--text-soft);
+            line-height: 1.65;
+        }
+
+        .site-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .site-skill-tag {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-soft);
+        }
+
+        .site-process {
+            margin-top: 48px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .process-step {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 22px 18px;
+            text-align: center;
+        }
+
+        .process-step .num {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+        }
+
+        .process-step h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .process-step p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 960px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats-card {
+                max-width: 360px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-inner {
-                gap: 30px;
+            .about-wrap {
+                grid-template-columns: 1fr;
             }
 
-            .contact-box {
-                flex-direction: column;
-                align-items: flex-start;
+            .site-grid {
+                grid-template-columns: 1fr;
             }
 
-            nav ul {
-                display: none;
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 640px) {
+            nav ul {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
             .gallery {
                 grid-template-columns: 1fr;
             }
 
-            .project {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
             .contact-box {
-                padding: 24px 20px;
+                padding: 36px 24px;
             }
 
-            .gallery-item img {
-                height: 250px;
+            .process-steps {
+                grid-template-columns: 1fr;
             }
 
             h1 {
-                letter-spacing: -0.05em;
+                font-size: 42px;
             }
         }
     </style>
 </head>
-
 <body>
 
+    <!-- NAV -->
     <nav>
         <div class="container">
-
-            <div class="logo">
-                MR<span>.</span>SAM
-            </div>
-
+            <a href="#" class="logo" onclick="closeSitePage(); return false;">MR<span>.</span>SAM</a>
             <div class="nav-right">
                 <ul>
-                    <li><a href="#services" data-pt="Services" data-en="Services">Services</a></li>
-                    <li><a href="#projects" data-pt="Projects" data-en="Projects">Projects</a></li>
+                    <li><a href="#services" data-pt="Serviços" data-en="Services">Serviços</a></li>
+                    <li><button class="nav-link" onclick="openSitePage()" data-pt="Site" data-en="Site">Site</button></li>
+                    <li><a href="#projects" data-pt="Projetos" data-en="Projects">Projetos</a></li>
                     <li><a href="#building" data-pt="Building" data-en="Building">Building</a></li>
-                    <li><a href="#about" data-pt="About" data-en="About">About</a></li>
-                    <li><a href="#contact" data-pt="Contact" data-en="Contact">Contact</a></li>
+                    <li><a href="#about" data-pt="Sobre" data-en="About">Sobre</a></li>
+                    <li><a href="#contact" data-pt="Contato" data-en="Contact">Contato</a></li>
                 </ul>
-
-                <button class="lang-btn" onclick="toggleLanguage()" data-pt="Translate" data-en="Traduzir">
-                    Translate
-                </button>
+                <button class="lang-btn" onclick="toggleLanguage()" data-pt="Translate" data-en="Traduzir">Translate</button>
             </div>
-
         </div>
     </nav>
 
     <main>
-
-        <section class="hero">
-
-            <div class="container hero-inner">
-
-                <div class="hero-content">
-                    <div class="tag" data-pt="Roblox Builder / Bot Developer / Administration / Security" data-en="Roblox Builder / Bot Developer / Administration / Security">
-                        Roblox Builder / Bot Developer / Administration / Security
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-inner">
+                    <div>
+                        <div class="tag">
+                            <span data-pt="Roblox Builder / Bot Developer / Administração / Segurança / Sites" data-en="Roblox Builder / Bot Developer / Administration / Security / Web">Roblox Builder / Bot Developer / Administração / Segurança / Sites</span>
+                        </div>
+                        <h1>MR.SAM</h1>
+                        <p class="hero-desc" data-pt="Roblox Builder e desenvolvedor de bots, com experiência em administração, segurança, design e desenvolvimento de sites para comunidades digitais." data-en="Roblox Builder and bot developer, with experience in administration, security, design and website development for digital communities.">
+                            Roblox Builder e desenvolvedor de bots, com experiência em administração, segurança, design e desenvolvimento de sites para comunidades digitais.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#building" class="button primary" data-pt="Ver meus builds" data-en="View my builds">Ver meus builds</a>
+                            <a href="#contact" class="button" data-pt="Entrar em contato" data-en="Get in touch">Entrar em contato</a>
+                        </div>
                     </div>
-
-                    <h1>
-                        MR<span>.</span>SAM
-                    </h1>
-
-                    <p data-pt="Roblox Builder e desenvolvedor de bots, com experiência em administração, segurança e design para comunidades digitais." data-en="Roblox Builder and bot developer, with experience in administration, security and design for digital communities.">
-                        Roblox Builder e desenvolvedor de bots, com experiência
-                        em administração, segurança e design para comunidades
-                        digitais.
-                    </p>
-
-                    <div class="buttons">
-
-                        <a class="button primary" href="#building" data-pt="Ver meus builds" data-en="View my builds">
-                            Ver meus builds
-                        </a>
-
-                        <a class="button" href="#contact" data-pt="Entrar em contato" data-en="Get in touch">
-                            Entrar em contato
-                        </a>
-
-                    </div>
-                </div>
-
-                <div class="hero-panel">
-                    <div class="panel-mini">
-                        <div class="mini-card">
+                    <div class="stats-card">
+                        <div class="stat-item">
                             <strong>7+</strong>
-                            <span data-pt="Specialized Skills" data-en="Specialized Skills">Specialized Skills</span>
+                            <span data-pt="Habilidades especializadas" data-en="Specialized skills">Habilidades especializadas</span>
                         </div>
-
-                        <div class="mini-card">
+                        <div class="stat-item">
                             <strong>100%</strong>
-                            <span data-pt="Focus on Quality" data-en="Focus on Quality">Focus on Quality</span>
+                            <span data-pt="Foco em qualidade" data-en="Focus on quality">Foco em qualidade</span>
                         </div>
-
-                        <div class="mini-card">
+                        <div class="stat-item">
                             <strong>24/7</strong>
-                            <span data-pt="Community Support" data-en="Community Support">Community Support</span>
+                            <span data-pt="Suporte à comunidade" data-en="Community support">Suporte à comunidade</span>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </section>
 
+        <!-- SERVICES -->
         <section id="services">
-
             <div class="container">
-
-                <div class="section-label" data-pt="01 — Services" data-en="01 — Services">
-                    01 — Services
+                <div class="section-label" data-pt="01 — Serviços" data-en="01 — Services">01 — Serviços</div>
+                <h2 data-pt="O que eu faço." data-en="What I do.">O que eu faço.</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-num">01</div>
+                        <h3 data-pt="Roblox Building" data-en="Roblox Building">Roblox Building</h3>
+                        <p data-pt="Construção e desenvolvimento de ambientes, mapas e estruturas no Roblox Studio, equilibrando estética e funcionalidade." data-en="Construction and development of environments, maps and structures in Roblox Studio, balancing aesthetics and functionality.">
+                            Construção e desenvolvimento de ambientes, mapas e estruturas no Roblox Studio, equilibrando estética e funcionalidade.
+                        </p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">02</div>
+                        <h3 data-pt="Bot Development" data-en="Bot Development">Bot Development</h3>
+                        <p data-pt="Criação e configuração de bots para Discord com moderação, tickets, logs, comandos e automações." data-en="Creation and configuration of Discord bots with moderation, tickets, logs, commands and automations.">
+                            Criação e configuração de bots para Discord com moderação, tickets, logs, comandos e automações.
+                        </p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">03</div>
+                        <h3 data-pt="Discord Management" data-en="Discord Management">Discord Management</h3>
+                        <p data-pt="Organização de servidores, cargos, permissões, canais e estruturas administrativas de comunidades." data-en="Organization of servers, roles, permissions, channels and community administrative structures.">
+                            Organização de servidores, cargos, permissões, canais e estruturas administrativas de comunidades.
+                        </p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">04</div>
+                        <h3 data-pt="Security" data-en="Security">Security</h3>
+                        <p data-pt="Sistemas de proteção, controle de acesso, moderação e prevenção de abusos em comunidades digitais." data-en="Protection systems, access control, moderation and abuse prevention in digital communities.">
+                            Sistemas de proteção, controle de acesso, moderação e prevenção de abusos em comunidades digitais.
+                        </p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">05</div>
+                        <h3 data-pt="Graphic Design" data-en="Graphic Design">Graphic Design</h3>
+                        <p data-pt="Criação e edição de materiais visuais para projetos, comunidades, redes sociais e apresentações." data-en="Creation and editing of visual materials for projects, communities, social media and presentations.">
+                            Criação e edição de materiais visuais para projetos, comunidades, redes sociais e apresentações.
+                        </p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-num">06</div>
+                        <h3 data-pt="Web Development" data-en="Web Development">Web Development</h3>
+                        <p data-pt="Desenvolvimento de sites profissionais, portfólios e landing pages modernas, responsivas e otimizadas." data-en="Development of professional websites, portfolios and modern, responsive and optimized landing pages.">
+                            Desenvolvimento de sites profissionais, portfólios e landing pages modernas, responsivas e otimizadas.
+                        </p>
+                    </div>
                 </div>
-
-                <h2 data-pt="O que eu faço." data-en="What I do.">
-                    O que eu faço.
-                </h2>
-
-                <div class="services">
-
-                    <div class="service">
-                        <div class="service-number">01</div>
-
-                        <h3 data-pt="Roblox Building" data-en="Roblox Building">
-                            Roblox Building
-                        </h3>
-
-                        <p data-pt="Construção e desenvolvimento de ambientes, mapas e estruturas utilizando o Roblox Studio, buscando equilíbrio entre estética e funcionalidade." data-en="Construction and development of environments, maps and structures using Roblox Studio, seeking balance between aesthetics and functionality.">
-                            Construção e desenvolvimento de ambientes,
-                            mapas e estruturas utilizando o Roblox Studio,
-                            buscando equilíbrio entre estética e
-                            funcionalidade.
-                        </p>
-                    </div>
-
-                    <div class="service">
-                        <div class="service-number">02</div>
-
-                        <h3 data-pt="Bot Development" data-en="Bot Development">
-                            Bot Development
-                        </h3>
-
-                        <p data-pt="Criação e configuração de bots para Discord, incluindo sistemas de moderação, tickets, logs, comandos e automações." data-en="Creation and configuration of bots for Discord, including moderation systems, tickets, logs, commands and automations.">
-                            Criação e configuração de bots para Discord,
-                            incluindo sistemas de moderação, tickets,
-                            logs, comandos e automações.
-                        </p>
-                    </div>
-
-                    <div class="service">
-                        <div class="service-number">03</div>
-
-                        <h3 data-pt="Discord Management" data-en="Discord Management">
-                            Discord Management
-                        </h3>
-
-                        <p data-pt="Organização de servidores, cargos, permissões, canais, sistemas administrativos e estruturas de comunidades." data-en="Organization of servers, roles, permissions, channels, administrative systems and community structures.">
-                            Organização de servidores, cargos, permissões,
-                            canais, sistemas administrativos e estruturas
-                            de comunidades.
-                        </p>
-                    </div>
-
-                    <div class="service">
-                        <div class="service-number">04</div>
-
-                        <h3 data-pt="Security" data-en="Security">
-                            Security
-                        </h3>
-
-                        <p data-pt="Estruturação de sistemas de proteção, controle de acesso, moderação e prevenção de abusos em comunidades digitais." data-en="Structuring protection systems, access control, moderation and prevention of abuse in digital communities.">
-                            Estruturação de sistemas de proteção, controle
-                            de acesso, moderação e prevenção de abusos em
-                            comunidades digitais.
-                        </p>
-                    </div>
-
-                    <div class="service">
-                        <div class="service-number">05</div>
-
-                        <h3 data-pt="Graphic Design" data-en="Graphic Design">
-                            Graphic Design
-                        </h3>
-
-                        <p data-pt="Criação e edição de materiais visuais para projetos, comunidades, redes sociais e apresentações." data-en="Creation and editing of visual materials for projects, communities, social networks and presentations.">
-                            Criação e edição de materiais visuais para
-                            projetos, comunidades, redes sociais e
-                            apresentações.
-                        </p>
-                    </div>
-
-                    <div class="service">
-                        <div class="service-number">06</div>
-
-                        <h3 data-pt="Community Systems" data-en="Community Systems">
-                            Community Systems
-                        </h3>
-
-                        <p data-pt="Organização de processos internos, fluxos de suporte e estruturas que melhoram a rotina de administração e segurança." data-en="Organization of internal processes, support flows and structures that improve the routine of administration and security.">
-                            Organização de processos internos, fluxos de
-                            suporte e estruturas que melhoram a rotina de
-                            administração e segurança.
-                        </p>
-                    </div>
-
-                </div>
-
             </div>
-
         </section>
 
+        <!-- PROJECTS -->
         <section id="projects">
-
             <div class="container">
-
-                <div class="section-label" data-pt="02 — Selected Work" data-en="02 — Selected Work">
-                    02 — Selected Work
+                <div class="section-label" data-pt="02 — Trabalhos selecionados" data-en="02 — Selected work">02 — Trabalhos selecionados</div>
+                <h2 data-pt="Projetos." data-en="Projects.">Projetos.</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Mall Complex Facility</h3>
+                        <p data-pt="Experiência de RP no Roblox ambientada em um complexo comercial, com sistemas de segurança, funções, patrulhamento e eventos." data-en="RP experience on Roblox set in a commercial complex, with security systems, roles, patrols and events.">
+                            Experiência de RP no Roblox ambientada em um complexo comercial, com sistemas de segurança, funções, patrulhamento e eventos.
+                        </p>
+                        <span class="project-tag">ROBLOX / BUILDING</span>
+                    </div>
+                    <div class="project-card">
+                        <h3>Discord Bot Systems</h3>
+                        <p data-pt="Desenvolvimento de bots para comunidades do Discord, com moderação, tickets, logs, comandos e automações." data-en="Development of bots for Discord communities, with moderation, tickets, logs, commands and automations.">
+                            Desenvolvimento de bots para comunidades do Discord, com moderação, tickets, logs, comandos e automações.
+                        </p>
+                        <span class="project-tag">BOTS / DISCORD</span>
+                    </div>
+                    <div class="project-card">
+                        <h3>Discord Administration</h3>
+                        <p data-pt="Estruturação e administração de comunidades, incluindo hierarquia, permissões, canais, moderação e suporte." data-en="Structuring and administration of communities, including hierarchy, permissions, channels, moderation and support.">
+                            Estruturação e administração de comunidades, incluindo hierarquia, permissões, canais, moderação e suporte.
+                        </p>
+                        <span class="project-tag">MANAGEMENT</span>
+                    </div>
+                    <div class="project-card">
+                        <h3>Security & Management</h3>
+                        <p data-pt="Soluções de organização e segurança para comunidades digitais, melhorando processos e mantendo ambientes seguros." data-en="Organization and security solutions for digital communities, improving processes and keeping environments safe.">
+                            Soluções de organização e segurança para comunidades digitais, melhorando processos e mantendo ambientes seguros.
+                        </p>
+                        <span class="project-tag">SECURITY</span>
+                    </div>
                 </div>
-
-                <h2 data-pt="Projetos." data-en="Projects.">
-                    Projetos.
-                </h2>
-
-                <div class="projects">
-
-                    <div class="project">
-
-                        <div>
-                            <h3 data-pt="Mall Complex Facility" data-en="Mall Complex Facility">
-                                Mall Complex Facility
-                            </h3>
-
-                            <p data-pt="Projeto de uma experiência de RP no Roblox ambientada em um complexo comercial, com sistemas de segurança, funções, patrulhamento e eventos." data-en="A Roblox RP experience project set in a shopping complex, with security systems, functions, patrols and events.">
-                                Projeto de uma experiência de RP no Roblox
-                                ambientada em um complexo comercial, com
-                                sistemas de segurança, funções,
-                                patrulhamento e eventos.
-                            </p>
-                        </div>
-
-                        <div class="project-tag" data-pt="ROBLOX / BUILDING" data-en="ROBLOX / BUILDING">
-                            ROBLOX / BUILDING
-                        </div>
-
-                    </div>
-
-                    <div class="project">
-
-                        <div>
-                            <h3 data-pt="Discord Bot Systems" data-en="Discord Bot Systems">
-                                Discord Bot Systems
-                            </h3>
-
-                            <p data-pt="Desenvolvimento de bots para comunidades do Discord, com sistemas de moderação, tickets, logs, comandos e automações." data-en="Development of bots for Discord communities, with moderation systems, tickets, logs, commands and automations.">
-                                Desenvolvimento de bots para comunidades
-                                do Discord, com sistemas de moderação,
-                                tickets, logs, comandos e automações.
-                            </p>
-                        </div>
-
-                        <div class="project-tag" data-pt="BOTS / DISCORD" data-en="BOTS / DISCORD">
-                            BOTS / DISCORD
-                        </div>
-
-                    </div>
-
-                    <div class="project">
-
-                        <div>
-                            <h3 data-pt="Discord Administration" data-en="Discord Administration">
-                                Discord Administration
-                            </h3>
-
-                            <p data-pt="Estruturação e administração de comunidades, incluindo hierarquia, permissões, canais, moderação, suporte e organização interna." data-en="Structure and administration of communities, including hierarchy, permissions, channels, moderation, support and internal organization.">
-                                Estruturação e administração de comunidades,
-                                incluindo hierarquia, permissões, canais,
-                                moderação, suporte e organização interna.
-                            </p>
-                        </div>
-
-                        <div class="project-tag" data-pt="MANAGEMENT" data-en="MANAGEMENT">
-                            MANAGEMENT
-                        </div>
-
-                    </div>
-
-                    <div class="project">
-
-                        <div>
-                            <h3 data-pt="Security & Management" data-en="Security & Management">
-                                Security & Management
-                            </h3>
-
-                            <p data-pt="Soluções de organização e segurança para comunidades digitais, buscando melhorar processos e manter ambientes mais seguros e funcionais." data-en="Organization and security solutions for digital communities, seeking to improve processes and maintain safer and more functional environments.">
-                                Soluções de organização e segurança para
-                                comunidades digitais, buscando melhorar
-                                processos e manter ambientes mais seguros
-                                e funcionais.
-                            </p>
-                        </div>
-
-                        <div class="project-tag" data-pt="SECURITY" data-en="SECURITY">
-                            SECURITY
-                        </div>
-
-                    </div>
-
-                </div>
-
             </div>
-
         </section>
 
+        <!-- BUILDING -->
         <section id="building">
-
             <div class="container">
-
-                <div class="section-label" data-pt="03 — Roblox Building" data-en="03 — Roblox Building">
-                    03 — Roblox Building
-                </div>
-
-                <h2 data-pt="Meus builds." data-en="My builds.">
-                    Meus builds.
-                </h2>
-
-                <p class="gallery-intro" data-pt="Alguns dos meus trabalhos desenvolvidos no Roblox Studio, mostrando diferentes construções e ambientes criados por mim." data-en="Some of my work developed in Roblox Studio, showing different constructions and environments created by me.">
-                    Alguns dos meus trabalhos desenvolvidos no Roblox Studio,
-                    mostrando diferentes construções e ambientes criados por mim.
+                <div class="section-label" data-pt="03 — Roblox Building" data-en="03 — Roblox Building">03 — Roblox Building</div>
+                <h2 data-pt="Meus builds." data-en="My builds.">Meus builds.</h2>
+                <p style="color: var(--text-soft); margin-bottom: 8px; max-width: 560px;" data-pt="Alguns dos meus trabalhos desenvolvidos no Roblox Studio, mostrando diferentes construções e ambientes." data-en="Some of my works developed in Roblox Studio, showing different constructions and environments.">
+                    Alguns dos meus trabalhos desenvolvidos no Roblox Studio, mostrando diferentes construções e ambientes.
                 </p>
 
-                <h3 class="gallery-title" data-pt="Batalhão de Infantaria de Selva" data-en="Jungle Infantry Battalion">
-                    Batalhão de Infantaria de Selva
-                </h3>
-
+                <div class="build-title">Batalhão de Infantaria de Selva</div>
                 <div class="gallery">
-
                     <div class="gallery-item">
-                        <img
-                            src="BIS-1.webp"
-                            alt="Build BIS 1"
-                        >
+                        <img src="BIS-1.webp" alt="Batalhão de Infantaria de Selva 1">
                     </div>
-
                     <div class="gallery-item">
-                        <img
-                            src="BIS-2.webp"
-                            alt="Build BIS 2"
-                        >
+                        <img src="BIS-2.webp" alt="Batalhão de Infantaria de Selva 2">
                     </div>
-
                 </div>
 
-                <h3 class="gallery-title" data-pt="Uma casa" data-en="A House">
-                    Uma casa
-                </h3>
-
+                <div class="build-title">Uma casa</div>
                 <div class="gallery">
-
                     <div class="gallery-item">
-                        <img
-                            src="casa-1.webp"
-                            alt="Build Casa 1"
-                        >
+                        <img src="casa-1.webp" alt="Build Casa 1">
                     </div>
-
                     <div class="gallery-item">
-                        <img
-                            src="casa-2.webp"
-                            alt="Build Casa 2"
-                        >
+                        <img src="casa-2.webp" alt="Build Casa 2">
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
+        <!-- ABOUT -->
         <section id="about">
-
             <div class="container">
-
-                <div class="section-label" data-pt="04 — About" data-en="04 — About">
-                    04 — About
-                </div>
-
-                <h2 data-pt="Sobre mim." data-en="About me.">
-                    Sobre mim.
-                </h2>
-
+                <div class="section-label" data-pt="04 — Sobre" data-en="04 — About">04 — Sobre</div>
+                <h2 data-pt="Sobre mim." data-en="About me.">Sobre mim.</h2>
                 <div class="about-wrap">
-
                     <div>
-
-                        <p data-pt="Sou Builder no Roblox Studio e desenvolvedor de bots, além de atuar com administração, organização e segurança de comunidades digitais." data-en="I am a Builder in Roblox Studio and bot developer, in addition to working with administration, organization and security of digital communities.">
-                            Sou Builder no Roblox Studio e desenvolvedor
-                            de bots, além de atuar com administração,
-                            organização e segurança de comunidades digitais.
+                        <p data-pt="Sou Builder no Roblox Studio e desenvolvedor de bots, além de atuar com administração, organização, segurança de comunidades digitais e desenvolvimento de sites." data-en="I am a Builder in Roblox Studio and bot developer, in addition to working with administration, organization, security of digital communities and website development.">
+                            Sou Builder no Roblox Studio e desenvolvedor de bots, além de atuar com administração, organização, segurança de comunidades digitais e desenvolvimento de sites.
                         </p>
-
-                        <br>
-
                         <p data-pt="Meu objetivo é criar experiências e sistemas funcionais, organizados e visualmente bem construídos, sempre buscando melhorar a experiência dos usuários." data-en="My goal is to create functional, organized and visually well-built experiences and systems, always seeking to improve the user experience.">
-                            Meu objetivo é criar experiências e sistemas
-                            funcionais, organizados e visualmente bem
-                            construídos, sempre buscando melhorar a
-                            experiência dos usuários.
+                            Meu objetivo é criar experiências e sistemas funcionais, organizados e visualmente bem construídos, sempre buscando melhorar a experiência dos usuários.
                         </p>
-
                     </div>
-
-                    <div class="stats">
-
-                        <div class="stat">
-                            <strong data-pt="Roblox Studio" data-en="Roblox Studio">
-                                Roblox Studio
-                            </strong>
-
-                            <span data-pt="Building & Development" data-en="Building & Development">
-                                Building & Development
-                            </span>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <strong>Roblox Studio</strong>
+                            <span data-pt="Building & Development" data-en="Building & Development">Building & Development</span>
                         </div>
-
-                        <div class="stat">
-                            <strong data-pt="Bot Development" data-en="Bot Development">
-                                Bot Development
-                            </strong>
-
-                            <span data-pt="Discord Bots & Automation" data-en="Discord Bots & Automation">
-                                Discord Bots & Automation
-                            </span>
+                        <div class="skill-item">
+                            <strong>Bot Development</strong>
+                            <span data-pt="Discord Bots & Automation" data-en="Discord Bots & Automation">Discord Bots & Automation</span>
                         </div>
-
-                        <div class="stat">
-                            <strong data-pt="Discord" data-en="Discord">
-                                Discord
-                            </strong>
-
-                            <span data-pt="Management & Moderation" data-en="Management & Moderation">
-                                Management & Moderation
-                            </span>
+                        <div class="skill-item">
+                            <strong>Discord</strong>
+                            <span data-pt="Management & Moderation" data-en="Management & Moderation">Management & Moderation</span>
                         </div>
-
-                        <div class="stat">
-                            <strong data-pt="Security" data-en="Security">
-                                Security
-                            </strong>
-
-                            <span data-pt="Community Protection" data-en="Community Protection">
-                                Community Protection
-                            </span>
+                        <div class="skill-item">
+                            <strong>Security</strong>
+                            <span data-pt="Community Protection" data-en="Community Protection">Community Protection</span>
                         </div>
-
-                        <div class="stat">
-                            <strong data-pt="Design" data-en="Design">
-                                Design
-                            </strong>
-
-                            <span data-pt="Graphic & Visual Content" data-en="Graphic & Visual Content">
-                                Graphic & Visual Content
-                            </span>
+                        <div class="skill-item">
+                            <strong>Design</strong>
+                            <span data-pt="Graphic & Visual Content" data-en="Graphic & Visual Content">Graphic & Visual Content</span>
                         </div>
-
+                        <div class="skill-item">
+                            <strong>Web</strong>
+                            <span data-pt="Sites & Landing Pages" data-en="Websites & Landing Pages">Sites & Landing Pages</span>
+                        </div>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
+        <!-- CONTACT -->
         <section id="contact">
-
             <div class="container">
-
-                <div class="section-label" data-pt="05 — Contact" data-en="05 — Contact">
-                    05 — Contact
-                </div>
-
-                <h2 data-pt="Vamos trabalhar juntos." data-en="Let's work together.">
-                    Vamos trabalhar juntos.
-                </h2>
-
+                <div class="section-label" data-pt="05 — Contato" data-en="05 — Contact">05 — Contato</div>
+                <h2 data-pt="Vamos trabalhar juntos." data-en="Let's work together.">Vamos trabalhar juntos.</h2>
                 <div class="contact-box">
-
-                    <p data-pt="Interessado em construção no Roblox, desenvolvimento de bots, administração, segurança ou design para sua comunidade? Entre em contato comigo." data-en="Interested in building on Roblox, bot development, administration, security or design for your community? Get in touch with me.">
-                        Interessado em construção no Roblox, desenvolvimento
-                        de bots, administração, segurança ou design para sua
-                        comunidade? Entre em contato comigo.
+                    <p data-pt="Interessado em construção no Roblox, desenvolvimento de bots, administração, segurança, design ou sites para sua comunidade? Entre em contato." data-en="Interested in Roblox building, bot development, administration, security, design or websites for your community? Get in touch.">
+                        Interessado em construção no Roblox, desenvolvimento de bots, administração, segurança, design ou sites para sua comunidade? Entre em contato.
                     </p>
-
-                    <div class="buttons">
-
-                        <a
-                            class="button primary"
-                            href="https://discord.com/7mr.sam7"
-                            target="_blank"
-                            data-pt="Discord"
-                            data-en="Discord"
-                        >
-                            Discord
-                        </a>
-
-                        <a
-                            class="button"
-                            href="mailto:gx009er@gmail.com"
-                            data-pt="E-mail"
-                            data-en="E-mail"
-                        >
-                            E-mail
-                        </a>
-
+                    <div class="contact-buttons">
+                        <a class="button primary" href="https://discord.com/users/7mr.sam7" target="_blank" rel="noopener">Discord</a>
+                        <a class="button" href="mailto:gx009er@gmail.com">E-mail</a>
                     </div>
 
+                    <!-- MÉTODOS DE PAGAMENTO (estratégico, no final) -->
+                    <div class="payments">
+                        <div class="payments-title" data-pt="Formas de pagamento" data-en="Payment methods">Formas de pagamento</div>
+                        <div class="payment-list">
+                            <div class="payment-item">
+                                <div class="payment-icon pix" title="Pix">
+                                    <!-- Pix-style symbol -->
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2L4 7v10l8 5 8-5V7l-8-5z" stroke="currentColor" stroke-width="1.6" fill="none"/>
+                                        <path d="M12 8v8M8.5 10.5L12 8l3.5 2.5M8.5 13.5L12 16l3.5-2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="payment-info">
+                                    <div class="name">Pix</div>
+                                    <div class="payment-prices">
+                                        <span data-pt="Semanal: <strong>R$ 20</strong>" data-en="Weekly: <strong>R$ 20</strong>">Semanal: <strong>R$ 20</strong></span>
+                                        <span data-pt="Mensal: <strong>R$ 70</strong>" data-en="Monthly: <strong>R$ 70</strong>">Mensal: <strong>R$ 70</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-icon robux" title="Robux">
+                                    <!-- Robux-style R -->
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 4h7.5c2.8 0 4.5 1.7 4.5 4.2 0 1.9-1 3.2-2.6 3.8L19 20h-3.2l-2.5-7H10v7H7V4zm3 2.5v4.2h4c1.3 0 2-.7 2-1.9s-.7-2.3-2-2.3H10z"/>
+                                    </svg>
+                                </div>
+                                <div class="payment-info">
+                                    <div class="name">Robux</div>
+                                    <div class="payment-prices">
+                                        <span data-pt="Semanal: <strong>300 R$</strong>" data-en="Weekly: <strong>300 R$</strong>">Semanal: <strong>300 R$</strong></span>
+                                        <span data-pt="Mensal: <strong>1.000 R$</strong>" data-en="Monthly: <strong>1,000 R$</strong>">Mensal: <strong>1.000 R$</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
     <footer>
-
         <div class="container">
-
-            <span data-pt="© 2026 MR.SAM" data-en="© 2026 MR.SAM">
-                © 2026 MR.SAM
-            </span>
-
-            <span data-pt="Built with HTML & CSS" data-en="Built with HTML & CSS">
-                Built with HTML & CSS
-            </span>
-
+            <span>© 2026 MR.SAM</span>
+            <span data-pt="Feito com HTML, CSS & JS" data-en="Built with HTML, CSS & JS">Feito com HTML, CSS & JS</span>
         </div>
-
     </footer>
+
+    <!-- ========== PÁGINA SITE (BOOK TURN) ========== -->
+    <div class="page-overlay" id="sitePage">
+        <div class="book-page">
+            <div class="site-page-inner">
+                <div class="container">
+                    <button class="site-back" onclick="closeSitePage()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <span data-pt="Voltar ao portfólio" data-en="Back to portfolio">Voltar ao portfólio</span>
+                    </button>
+
+                    <div class="site-hero">
+                        <div class="section-label" data-pt="Desenvolvimento Web" data-en="Web Development">Desenvolvimento Web</div>
+                        <h1 data-pt="Eu também faço sites." data-en="I also build websites.">Eu também faço sites.</h1>
+                        <p data-pt="Além de builds no Roblox e bots, desenvolvo sites profissionais, portfólios e landing pages modernas. Este próprio site foi criado por mim — do zero, com foco em design limpo, performance e experiência do usuário." data-en="In addition to Roblox builds and bots, I develop professional websites, portfolios and modern landing pages. This very site was created by me — from scratch, with a focus on clean design, performance and user experience.">
+                            Além de builds no Roblox e bots, desenvolvo sites profissionais, portfólios e landing pages modernas. Este próprio site foi criado por mim — do zero, com foco em design limpo, performance e experiência do usuário.
+                        </p>
+                    </div>
+
+                    <div class="site-grid">
+                        <div class="site-card">
+                            <h3><span class="icon">◆</span> <span data-pt="HTML, CSS & JavaScript" data-en="HTML, CSS & JavaScript">HTML, CSS & JavaScript</span></h3>
+                            <p data-pt="Domínio completo das bases da web. Estrutura semântica, estilos modernos com CSS puro e interatividade com JavaScript limpo e eficiente." data-en="Full mastery of the web fundamentals. Semantic structure, modern pure CSS styles and interactivity with clean, efficient JavaScript.">
+                                Domínio completo das bases da web. Estrutura semântica, estilos modernos com CSS puro e interatividade com JavaScript limpo e eficiente.
+                            </p>
+                        </div>
+                        <div class="site-card">
+                            <h3><span class="icon">◇</span> <span data-pt="Design Responsivo" data-en="Responsive Design">Design Responsivo</span></h3>
+                            <p data-pt="Sites que funcionam perfeitamente em celular, tablet e desktop. Layouts fluidos, tipografia ajustada e experiência consistente em qualquer tela." data-en="Websites that work perfectly on mobile, tablet and desktop. Fluid layouts, adjusted typography and consistent experience on any screen.">
+                                Sites que funcionam perfeitamente em celular, tablet e desktop. Layouts fluidos, tipografia ajustada e experiência consistente em qualquer tela.
+                            </p>
+                        </div>
+                        <div class="site-card">
+                            <h3><span class="icon">▣</span> <span data-pt="UI / UX & Visual" data-en="UI / UX & Visual">UI / UX & Visual</span></h3>
+                            <p data-pt="Atenção a detalhes: hierarquia visual, espaçamentos, contraste, microinterações e uma identidade visual profissional que transmite confiança." data-en="Attention to detail: visual hierarchy, spacing, contrast, micro-interactions and a professional visual identity that conveys trust.">
+                                Atenção a detalhes: hierarquia visual, espaçamentos, contraste, microinterações e uma identidade visual profissional que transmite confiança.
+                            </p>
+                        </div>
+                        <div class="site-card">
+                            <h3><span class="icon">⬡</span> <span data-pt="Hospedagem & Deploy" data-en="Hosting & Deploy">Hospedagem & Deploy</span></h3>
+                            <p data-pt="Publicação em GitHub Pages, configuração de domínio, otimização de performance e entrega rápida. Seu site no ar de forma estável e profissional." data-en="Publishing on GitHub Pages, domain setup, performance optimization and fast delivery. Your site live in a stable and professional way.">
+                                Publicação em GitHub Pages, configuração de domínio, otimização de performance e entrega rápida. Seu site no ar de forma estável e profissional.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="site-skills">
+                        <span class="site-skill-tag">HTML5</span>
+                        <span class="site-skill-tag">CSS3 / Flexbox / Grid</span>
+                        <span class="site-skill-tag">JavaScript</span>
+                        <span class="site-skill-tag">Responsivo</span>
+                        <span class="site-skill-tag">GitHub Pages</span>
+                        <span class="site-skill-tag">UI Design</span>
+                        <span class="site-skill-tag">Landing Pages</span>
+                        <span class="site-skill-tag">Portfólios</span>
+                        <span class="site-skill-tag">Animações CSS</span>
+                    </div>
+
+                    <div class="site-process">
+                        <div class="section-label" data-pt="Como eu trabalho" data-en="How I work">Como eu trabalho</div>
+                        <h2 style="margin-bottom: 8px; font-size: 28px;" data-pt="Processo simples e claro." data-en="Simple and clear process.">Processo simples e claro.</h2>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="num">01</div>
+                                <h4 data-pt="Briefing" data-en="Briefing">Briefing</h4>
+                                <p data-pt="Entendo o objetivo, o público e o estilo desejado." data-en="I understand the goal, the audience and the desired style.">
+                                    Entendo o objetivo, o público e o estilo desejado.
+                                </p>
+                            </div>
+                            <div class="process-step">
+                                <div class="num">02</div>
+                                <h4 data-pt="Design" data-en="Design">Design</h4>
+                                <p data-pt="Defino estrutura, cores, tipografia e layout." data-en="I define structure, colors, typography and layout.">
+                                    Defino estrutura, cores, tipografia e layout.
+                                </p>
+                            </div>
+                            <div class="process-step">
+                                <div class="num">03</div>
+                                <h4 data-pt="Código" data-en="Code">Código</h4>
+                                <p data-pt="Desenvolvo o site limpo, rápido e responsivo." data-en="I develop a clean, fast and responsive site.">
+                                    Desenvolvo o site limpo, rápido e responsivo.
+                                </p>
+                            </div>
+                            <div class="process-step">
+                                <div class="num">04</div>
+                                <h4 data-pt="Entrega" data-en="Delivery">Entrega</h4>
+                                <p data-pt="Publico, ajusto e deixo tudo pronto para uso." data-en="I publish, adjust and leave everything ready to use.">
+                                    Publico, ajusto e deixo tudo pronto para uso.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 56px; text-align: center;">
+                        <a href="#contact" class="button primary" onclick="closeSitePage()" data-pt="Quero um site" data-en="I want a website">Quero um site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         let currentLanguage = 'pt';
 
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'pt' ? 'en' : 'pt';
-            const lang = currentLanguage === 'pt' ? 'pt' : 'en';
-            const opposite = lang === 'pt' ? 'en' : 'pt';
+            const lang = currentLanguage;
 
-            // Atualizar todos os elementos com data-pt e data-en
-            document.querySelectorAll('[data-pt][data-en]').forEach(element => {
-                const text = element.getAttribute(`data-${lang}`);
-                if (text) {
-                    element.textContent = text;
+            document.querySelectorAll('[data-pt][data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text !== null) {
+                    // Support HTML inside data attributes for prices
+                    if (text.includes('<')) {
+                        el.innerHTML = text;
+                    } else {
+                        el.textContent = text;
+                    }
                 }
             });
 
-            // Atualizar título da página
-            document.title = currentLanguage === 'pt' ? 'MR.SAM — Portfolio' : 'MR.SAM — Portfolio';
-
-            // Atualizar HTML lang
-            document.documentElement.lang = currentLanguage === 'pt' ? 'pt-BR' : 'en';
-
-            // Salvar preferência no localStorage
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
             localStorage.setItem('language', currentLanguage);
         }
 
-        // Carregar idioma salvo ao entrar na página
         window.addEventListener('DOMContentLoaded', () => {
-            const savedLanguage = localStorage.getItem('language');
-            if (savedLanguage && savedLanguage !== 'pt') {
+            const saved = localStorage.getItem('language');
+            if (saved && saved === 'en') {
                 currentLanguage = 'pt';
                 toggleLanguage();
             }
         });
+
+        // Book page turn
+        function openSitePage() {
+            const overlay = document.getElementById('sitePage');
+            overlay.classList.remove('closing');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSitePage() {
+            const overlay = document.getElementById('sitePage');
+            overlay.classList.add('closing');
+            setTimeout(() => {
+                overlay.classList.remove('active', 'closing');
+                document.body.style.overflow = '';
+            }, 850);
+        }
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeSitePage();
+        });
     </script>
-
 </body>
-
 </html>
